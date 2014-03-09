@@ -1,0 +1,11 @@
+{
+  "name": "renders",
+  "version": "1.0.0",
+  "description": "",
+  "type": "overlay",
+  "format": "png",
+  "minzoom": "5",
+  "maxzoom": "18",
+  "bounds": "-5.17241478,50.34579664,-5.11748314,50.38083847",
+  "profile": "mercator"
+}

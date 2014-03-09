@@ -1,0 +1,11 @@
+{
+  "name": "PenHale2",
+  "version": "1.0.0",
+  "description": "",
+  "type": "overlay",
+  "format": "png",
+  "minzoom": "11",
+  "maxzoom": "15",
+  "bounds": "-5.28785706,50.27924999,-5.18906426,50.31253014",
+  "profile": "mercator"
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>map (5)</title>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style type="text/css">
+html, body { margin:0; padding: 0; height: 100%; width: 100%; }
+body { width:100%; height:100%; background: #ffffff; }
+#map { position: absolute; height: 100%; width: 100%; }
+.olImageLoadError {  display: none !important; }
+.olControlAttribution { bottom: 0px !important; left: 2px; right: inherit; width: 400px; }
+/* conditionally position control differently for Google Maps */
+.olForeignContainer div.olControlMousePosition { bottom: 28px; }
+</style>
+<script src="OpenLayers/OpenLayers.mobile.js" type="text/javascript"></script>
+<script type="text/javascript">
+var map, layer;
+var mapBounds = new OpenLayers.Bounds(-5.171015, 50.346351, -5.116083, 50.381392);var mapMinZoom = 12;
+var mapMaxZoom = 14;
+function init() {
+    var options = {
+        projection: "EPSG:3857",
+        displayProjection: "EPSG:4326",
+        numZoomLevels: 18
+    };
+  map = new OpenLayers.Map('map', options);
+  layer = new OpenLayers.Layer.XYZ("MapTiler layer", "${z}/${x}/${y}.png", {
+    transitionEffect: 'resize',
+    isBaseLayer: true,
+    numZoomLevels: null, minZoomLevel: 12, maxZoomLevel: 14
+  });
+
+
+   map.addLayers([
+      layer
+  ]);
+
+
+  
+
+ 
+  map.zoomToExtent(mapBounds.transform(map.displayProjection, map.projection ));
+  map.addControl(new OpenLayers.Control.MousePosition());
+  map.addControl(new OpenLayers.Control.Permalink());
+  map.addControl(new OpenLayers.Control.LayerSwitcher());
+}
+</script>
+</head>
+<body onload="init();">
+<div id="map"></div>
+</body>
+</html>
